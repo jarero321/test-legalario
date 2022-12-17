@@ -27,12 +27,9 @@ const InitialState: React.FC = () => {
           </p>
         </div>
         <div className="w-full flex flex-col lg:flex-row mt-[24px] gap-[24px]">
+          <DocumentRequired img="/icn-card.svg" title="INE/IFE o pasaporte" />
           <DocumentRequired
-            img="public/icn-card.svg"
-            title="INE/IFE o pasaporte"
-          />
-          <DocumentRequired
-            img="public/icn-selfie.svg"
+            img="/icn-selfie.svg"
             title="Selfie o fotografia del rostro"
           />
         </div>
