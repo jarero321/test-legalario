@@ -22,6 +22,7 @@ Si bien me hubiera gustado hacer mas cosas (retorno del usuario, hacer pantallas
 Puntos que podrian hacer el flujo mas eficiente:
 1 mostrar mensaje cuando se valido la informacion
 2 retorno constante para el usuario.
+3 guardar progreso en la ruta del usuario asi no pierde el progreso. (ejemplo url/validacion-biometrica/paso-no.1)
 
 Bueno ahora hablando de lo tecnico se uso react,vite, tailwind, typescript, librerias como html-5-camera, react-drag-and-drop, y una estructura de carpeta que focalizada en escalabilidad teniendo en el root archivos que se comparten entre las futuras paginas, y un area de pages que centralizaria vistas especificas de cada pagina tomese de base validationBiometrics.
 
