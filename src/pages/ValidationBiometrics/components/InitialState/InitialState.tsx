@@ -1,21 +1,12 @@
 import React from "react";
 import { Button } from "@/components/Button";
-import { ActionTypeValidationBiometrics } from "@/context/validationBiometrics/actions";
-import { ValidationBiometricsContext } from "@/context/validationBiometrics/context";
 import { DocumentRequired } from "../DocumentRequired";
 import IcnCard from "@/assets/icn-card.svg";
 import IcnSelfie from "@/assets/icn-selfie.svg";
+import useValidationBiometrics from "@/pages/hooks/useValidationBiometrics";
 
 const InitialState: React.FC = () => {
-  const context = React.useContext(ValidationBiometricsContext);
-  const { validationBiometricsDispatch } = context;
-
-  const handleSetStep = (value: string) => {
-    validationBiometricsDispatch({
-      type: ActionTypeValidationBiometrics.SetCurrentStep,
-      payload: value,
-    });
-  };
+  const { handleSetStep } = useValidationBiometrics();
 
   return (
     <div className="w-full h-full flex flex-col justify-between">

@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Button } from "@/components/Button";
 import { TakeAPhoto } from "@/components/TakeAPhoto";
-import { ActionTypeValidationBiometrics } from "@/context/validationBiometrics/actions";
-import { ValidationBiometricsContext } from "@/context/validationBiometrics/context";
 import { CameraNotFound } from "@/pages/ValidationBiometrics/components/CameraNotFound";
+import useValidationBiometrics from "@/pages/hooks/useValidationBiometrics";
 
 interface PhotographyViewInterface {
   isSelfie?: boolean;
@@ -12,48 +11,15 @@ interface PhotographyViewInterface {
 const PhotographyView: React.FC<PhotographyViewInterface> = ({
   isSelfie = false,
 }) => {
-  const context = useContext(ValidationBiometricsContext);
-  const { validationBiometricsDispatch, validationBiometricsState } = context;
+  const {
+    isDocUploaded,
+    validatePlace,
+    handleResetUpload,
+    handleSetPhotoFile,
+    handlevalidateBiometrics,
+  } = useValidationBiometrics();
+
   const [cameraNotFound, setCameraNotFound] = React.useState(false);
-
-  const validatePlace = (): string => {
-    return isSelfie
-      ? validationBiometricsState.photoFile
-      : validationBiometricsState.docFile;
-  };
-
-  const handleSetPhotoFile = (dataUri: string) => {
-    validationBiometricsDispatch({
-      type: isSelfie
-        ? ActionTypeValidationBiometrics.SetPhotoFile
-        : ActionTypeValidationBiometrics.SetDocFile,
-      payload: dataUri,
-    });
-  };
-
-  const handleSetStep = (value: string) => {
-    validationBiometricsDispatch({
-      type: ActionTypeValidationBiometrics.SetCurrentStep,
-      payload: value,
-    });
-    validationBiometricsDispatch({
-      type: ActionTypeValidationBiometrics.SetCurrentSubStep,
-      payload: "instructions",
-    });
-  };
-
-  const isDocUploaded = (value: string): boolean => {
-    return Boolean(value.length !== 0);
-  };
-
-  const handleResetUpload = () => {
-    validationBiometricsDispatch({
-      type: isSelfie
-        ? ActionTypeValidationBiometrics.SetPhotoFile
-        : ActionTypeValidationBiometrics.SetDocFile,
-      payload: "",
-    });
-  };
 
   const handleCameraNotFound = (data: string) => {
     if (data) {
@@ -63,36 +29,30 @@ const PhotographyView: React.FC<PhotographyViewInterface> = ({
     }
   };
 
-  const handlevalidateBiometrics = () => {
-    if (isSelfie) {
-      handleSetStep("validationBiometrics");
-    } else {
-      handleSetStep("selfieCapture");
-    }
-  };
-
   return (
     <div className="w-full h-full flex flex-col">
       <div className="w-full h-full flex flex-col justify-center">
-        {!isDocUploaded(validatePlace()) ? (
+        {!isDocUploaded(validatePlace(isSelfie)) ? (
           <>
             {!cameraNotFound ? (
               <TakeAPhoto
                 isSelfie={isSelfie}
                 handleCameraError={(data) => handleCameraNotFound(data)}
-                handleSetData={(data: string) => handleSetPhotoFile(data)}
+                handleSetData={(data: string) =>
+                  handleSetPhotoFile(data, isSelfie)
+                }
               />
             ) : (
               <CameraNotFound />
             )}
           </>
         ) : (
-          <img src={validatePlace()} />
+          <img src={validatePlace(isSelfie)} />
         )}
         {!cameraNotFound && (
           <div className="w-full mt-[32px]">
             <p className="text-xl font-semibold text-center text-[#1B365D]">
-              {isDocUploaded(validatePlace())
+              {isDocUploaded(validatePlace(isSelfie))
                 ? "¡Genial!, has tomado exitosamente la fotografia."
                 : "Coloca dentro del margen tu identificación."}
             </p>
@@ -108,18 +68,18 @@ const PhotographyView: React.FC<PhotographyViewInterface> = ({
           <div className="w-full lg:w-full ">
             <Button
               width="lg:w-full"
-              disabled={!isDocUploaded(validatePlace())}
+              disabled={!isDocUploaded(validatePlace(isSelfie))}
               height="lg:h-[60px]"
-              handleClick={handleResetUpload}
+              handleClick={() => handleResetUpload(isSelfie)}
               text="TOMAR DE NUEVO"
             />
           </div>
           <div className="w-full lg:w-full">
             <Button
-              disabled={!isDocUploaded(validatePlace())}
+              disabled={!isDocUploaded(validatePlace(isSelfie))}
               width="lg:w-full"
               height="lg:h-[60px]"
-              handleClick={handlevalidateBiometrics}
+              handleClick={() => handlevalidateBiometrics(isSelfie)}
               text="CONTINUAR"
             />
           </div>

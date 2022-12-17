@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import { ActionTypeValidationBiometrics } from "@/context/validationBiometrics/actions";
 import { ValidationBiometricsContext } from "@/context/validationBiometrics/context";
 import IcnSelfie from "@/assets/icn-selfie.svg";
+import useValidationBiometrics from "@/pages/hooks/useValidationBiometrics";
 export interface InstructionsInterface {
   title?: string;
   subtitle?: string;
@@ -12,15 +13,8 @@ const Instructions: React.FC<InstructionsInterface> = ({
   title = "Busca tu documento fisico para sacarle unas fotos.",
   subtitle = "Asegurate, que el documento se vea bien, buena iluminación y ninguna obstrucción",
 }) => {
-  const context = React.useContext(ValidationBiometricsContext);
-  const { validationBiometricsDispatch } = context;
+  const { handleSetSubStep } = useValidationBiometrics();
 
-  const handleSetSubStep = (value: string) => {
-    validationBiometricsDispatch({
-      type: ActionTypeValidationBiometrics.SetCurrentSubStep,
-      payload: value,
-    });
-  };
   return (
     <div className="w-full h-full flex flex-col">
       <div className="w-full h-full flex flex-col justify-center gap-[12px] ">
