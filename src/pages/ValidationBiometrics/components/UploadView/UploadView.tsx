@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { Button } from "../../../../components/Button";
-import { DragAndDrop } from "../../../../components/DragAndDrop";
-import { ActionTypeValidationBiometrics } from "../../../../context/validationBiometrics/actions";
-import { ValidationBiometricsContext } from "../../../../context/validationBiometrics/context";
+import { Button } from "@/components/Button";
+import { DragAndDrop } from "@/components/DragAndDrop";
+import { ActionTypeValidationBiometrics } from "@/context/validationBiometrics/actions";
+import { ValidationBiometricsContext } from "@/context/validationBiometrics/context";
 
 interface UploadViewInterface {
   isSelfie?: boolean;

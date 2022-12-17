@@ -1,8 +1,10 @@
 import React from "react";
-import { Button } from "../../../../components/Button";
-import { ActionTypeValidationBiometrics } from "../../../../context/validationBiometrics/actions";
-import { ValidationBiometricsContext } from "../../../../context/validationBiometrics/context";
+import { Button } from "@/components/Button";
+import { ActionTypeValidationBiometrics } from "@/context/validationBiometrics/actions";
+import { ValidationBiometricsContext } from "@/context/validationBiometrics/context";
 import { DocumentRequired } from "../DocumentRequired";
+import IcnCard from "@/assets/icn-card.svg";
+import IcnSelfie from "@/assets/icn-selfie.svg";
 
 const InitialState: React.FC = () => {
   const context = React.useContext(ValidationBiometricsContext);
@@ -27,9 +29,9 @@ const InitialState: React.FC = () => {
           </p>
         </div>
         <div className="w-full flex flex-col lg:flex-row mt-[24px] gap-[24px]">
-          <DocumentRequired img="/icn-card.svg" title="INE/IFE o pasaporte" />
+          <DocumentRequired img={IcnCard} title="INE/IFE o pasaporte" />
           <DocumentRequired
-            img="/icn-selfie.svg"
+            img={IcnSelfie}
             title="Selfie o fotografia del rostro"
           />
         </div>

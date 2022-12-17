@@ -1,7 +1,8 @@
 import React from "react";
-import { Button } from "../../../../components/Button";
-import { ActionTypeValidationBiometrics } from "../../../../context/validationBiometrics/actions";
-import { ValidationBiometricsContext } from "../../../../context/validationBiometrics/context";
+import { Button } from "@/components/Button";
+import { ActionTypeValidationBiometrics } from "@/context/validationBiometrics/actions";
+import { ValidationBiometricsContext } from "@/context/validationBiometrics/context";
+import IcnSelfie from "@/assets/icn-selfie.svg";
 export interface InstructionsInterface {
   title?: string;
   subtitle?: string;
@@ -24,7 +25,7 @@ const Instructions: React.FC<InstructionsInterface> = ({
     <div className="w-full h-full flex flex-col">
       <div className="w-full h-full flex flex-col justify-center gap-[12px] ">
         <div className="w-full flex items-center justify-center">
-          <img width={50} height={50} src="/icn-selfie.svg" />
+          <img width={50} height={50} src={IcnSelfie} />
         </div>
         <p className="text-xl font-semibold text-center text-[#1B365D]">
           {title}

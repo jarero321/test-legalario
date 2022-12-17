@@ -1,4 +1,4 @@
-import { Header } from "./Header";
+import { Header } from "@/layout/Header";
 import React from "react";
 
 interface LayoutProps {

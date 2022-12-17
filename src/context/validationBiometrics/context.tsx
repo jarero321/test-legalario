@@ -1,7 +1,7 @@
 import { createContext, Dispatch, useReducer } from "react";
-import { ValidationBiometricsActions } from "./actions";
-import { validationBiometricsReducer } from "./reducer";
-import { IValidationBiometrics, initalState } from "./state";
+import { ValidationBiometricsActions } from "@/context/validationBiometrics/actions";
+import { validationBiometricsReducer } from "@/context/validationBiometrics/reducer";
+import { IValidationBiometrics, initalState } from "@/context/validationBiometrics/state";
 
 const ValidationBiometricsContext = createContext<{
   validationBiometricsState: IValidationBiometrics;

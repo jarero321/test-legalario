@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { Button } from "../../../../components/Button";
-import { TakeAPhoto } from "../../../../components/TakeAPhoto";
-import { ActionTypeValidationBiometrics } from "../../../../context/validationBiometrics/actions";
-import { ValidationBiometricsContext } from "../../../../context/validationBiometrics/context";
-import { CameraNotFound } from "../CameraNotFound";
+import { Button } from "@/components/Button";
+import { TakeAPhoto } from "@/components/TakeAPhoto";
+import { ActionTypeValidationBiometrics } from "@/context/validationBiometrics/actions";
+import { ValidationBiometricsContext } from "@/context/validationBiometrics/context";
+import { CameraNotFound } from "@/pages/ValidationBiometrics/components/CameraNotFound";
 
 interface PhotographyViewInterface {
   isSelfie?: boolean;

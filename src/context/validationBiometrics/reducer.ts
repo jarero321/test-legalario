@@ -1,8 +1,8 @@
-import { IValidationBiometrics } from "./state";
+import { IValidationBiometrics } from "@/context/validationBiometrics/state";
 import {
   ActionTypeValidationBiometrics,
   ValidationBiometricsActions,
-} from "./actions";
+} from "@/context/validationBiometrics/actions";
 
 export function validationBiometricsReducer(
   state: IValidationBiometrics,

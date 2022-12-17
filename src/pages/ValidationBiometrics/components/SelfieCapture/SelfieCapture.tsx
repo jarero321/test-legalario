@@ -1,9 +1,9 @@
 import React from "react";
-import SwitchedComponent from "../../../../components/SwitchedComponent";
-import { ValidationBiometricsContext } from "../../../../context/validationBiometrics/context";
-import { Instructions } from "../Instructions";
-import { PhotographyView } from "../PhotographyView";
-import { UploadView } from "../UploadView";
+import SwitchedComponent from "@/components/SwitchedComponent";
+import { ValidationBiometricsContext } from "@/context/validationBiometrics/context";
+import { Instructions } from "@/pages/ValidationBiometrics/components/Instructions";
+import { PhotographyView } from "@/pages/ValidationBiometrics/components/PhotographyView";
+import { UploadView } from "@/pages/ValidationBiometrics/components/UploadView";
 
 const SelfieCapture: React.FC = () => {
   const context = React.useContext(ValidationBiometricsContext);

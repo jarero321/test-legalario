@@ -1,11 +1,11 @@
 import React from "react";
-import { CurrentRoute } from "../../components/CurrentRoute";
-import SwitchedComponent from "../../components/SwitchedComponent";
-import { ValidationBiometricsContext } from "../../context/validationBiometrics/context";
-import { DocumentCapture } from "./components/DocumentCapture";
-import { InitialState } from "./components/InitialState";
-import { SelfieCapture } from "./components/SelfieCapture";
-import { Validating } from "./components/Validating";
+import { CurrentRoute } from "@/components/CurrentRoute";
+import SwitchedComponent from "@/components/SwitchedComponent";
+import { ValidationBiometricsContext } from "@/context/validationBiometrics/context";
+import { DocumentCapture } from "@/pages/ValidationBiometrics/components/DocumentCapture";
+import { InitialState } from "@/pages/ValidationBiometrics/components/InitialState";
+import { SelfieCapture } from "@/pages/ValidationBiometrics/components/SelfieCapture";
+import { Validating } from "@/pages/ValidationBiometrics/components/Validating";
 
 const ValidationBiometrics: React.FC = () => {
   const context = React.useContext(ValidationBiometricsContext);
