@@ -64,7 +64,9 @@ const UploadView: React.FC<UploadViewInterface> = ({ isSelfie = false }) => {
         {!isDocUploaded(validatePlace()) ? (
           <DragAndDrop handleChange={(file: File) => handleSetDocFile(file)} />
         ) : (
-          <img src={validatePlace()} />
+          <div className="w-full flex items-center justify-center" >
+            <img className="max-h-[300px]" src={validatePlace()} />
+          </div>
         )}
         <div className="w-full mt-[32px]">
           <p className="text-xl font-semibold text-center text-[#1B365D]">
