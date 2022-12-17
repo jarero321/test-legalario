@@ -8,7 +8,7 @@ export interface DragAndDropInterface {
 const DragAndDrop: React.FC<DragAndDropInterface> = ({ handleChange }) => {
   return (
     <FileUploader
-      types={["png", "jpeg"]}
+      types={["png", "jpeg", "HEIF"]}
       maxSize={1}
       handleChange={(file: File) => handleChange(file)}
     >
